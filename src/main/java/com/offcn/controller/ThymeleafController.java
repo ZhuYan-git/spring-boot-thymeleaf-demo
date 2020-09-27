@@ -30,6 +30,18 @@ import java.util.*;
 public class ThymeleafController {
 
 
+    @GetMapping("/test")
+  public void test(){
+
+        System.out.println("逗你玩");
+
+
+
+  }
+
+
+
+
     @GetMapping("/demo1")
     public String demo1(Model model){
 
