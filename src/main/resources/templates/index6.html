@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1演示-thymeleaf的入门</title>
+    <script src="../static/test.js"></script>
+    <script src="/test.js"></script>
+    <script th:src="@{/test.js}"></script>
+</head>
+<body>
+<!--
+     thymeleaf的静态内容加载：
+
+      idea中提示加载静态资源的路径：
+            ../static/test.js
+      项目实际获取资源的路径：
+      <script src="/test.js"></script>
+
+      thymeleaf写法符合两种方式的路径：
+       @{/test.js}
+
+       格式：
+        @{静态资源路径}
+
+ thymeleaf的代码片段：
+
+  1. fragment的定义：
+
+    th:fragment="片段名称"
+
+  2.使用：
+   （1）th:insert
+
+       <div>
+            <h1>
+            &copy; 1999-2018 Offcn.All Rights Reserved
+            </h1>
+        </div>
+
+   (2)th:replace
+     <h1>
+                 &copy; 1999-2018 Offcn.All Rights Reserved
+      </h1>
+
+   (3)include
+       <div>
+            &copy; 1999-2018 Offcn.All Rights Reserved
+        </div>
+
+   格式：
+    ~{ 文件名称 ：：代码片段名称}
+
+    总结特点：
+        th:insert:保留自己的主标签，保留th:fragment的主标签。
+        th:replace:不要自己的主标签，保留th:fragment的主标签。
+        th:include:保留自己的主标签，不要th:fragment的主标签。<不推荐使用>
+
+
+-->
+<h2>thymeleaf的代码片段使用演示</h2>
+
+
+<div th:insert="~{footer:: copy}"></div>
+<div th:insert="~{footer:: copy2}"></div>
+<div th:insert="~{footer:: copy3}"></div>
+
+<hr/>
+<div th:replace="~{footer:: copy}"></div>
+<div th:replace="~{footer:: copy2}"></div>
+<div th:replace="~{footer:: copy3}"></div>
+
+<hr/>
+<div th:include="~{footer:: copy}"></div>
+<div th:include="~{footer:: copy2}"></div>
+<div th:include="~{footer:: copy3}"></div>
+
+
+</body>
+</html>

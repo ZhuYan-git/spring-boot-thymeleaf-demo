@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1演示-thymeleaf的入门</title>
+</head>
+<body>
+<!--
+     thymeleaf的赋值和字符串拼接：
+
+      赋值：
+        1.标签体
+         th:text
+        2.属性
+         th:属性名
+         th:src
+         th:href
+
+
+      字符串拼接：
+        1.+""+
+            原始的字符串拼接
+        2.thymeleaf  |  |
+            特定字符串拼接
+
+-->
+ <div th:text="'欢迎来到'+${str}+'学习'"></div>
+
+ <div th:text="|欢迎来到${str}学习,地址连接:${hrefValue}|"></div>
+
+<hr/>
+   <h1 th:text="${str}"></h1>
+    <hr/>
+   <input type="text" th:value="${str}" />
+   <hr/>
+   <a th:href="${hrefValue}">优就业</a>
+    <hr/>
+    <img th:src="${srcValue}"/>
+
+
+</body>
+</html>

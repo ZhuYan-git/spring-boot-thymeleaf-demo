@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1演示-thymeleaf的入门</title>
+</head>
+<body>
+<!--
+     thymeleaf的对象数据显示：
+         pojo实体类对象：
+              user
+         输出特点：对象导航
+          ${user.属性}
+ 自定义类型map对象：
+
+   输出特点：对象导航
+          ${map.属性}
+
+
+-->
+  ID:<span th:text="${user.id}"></span>
+  姓名:<span th:text="${user.name}"></span>
+  年龄:<span th:text="${user.age}"></span>
+  <hr/>
+    ID:<span th:text="${map.id}"></span>
+    姓名:<span th:text="${map.name}"></span>
+    年龄:<span th:text="${map.age}"></span>
+    性别：<span th:text="${map.sex}"></span>
+
+</body>
+</html>

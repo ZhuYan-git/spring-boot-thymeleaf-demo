@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1演示-thymeleaf的入门</title>
+</head>
+<body>
+<!--
+     thymeleaf的集合遍历：
+
+        语法特点：
+          th:each="变量 : ${集合}"
+         变量取值：
+          如果是字符串或者简单类型，直接输出即可
+          如果是复杂类型，对象导航输出
+
+       特性：
+        状态对象：
+             iterStat
+
+       常用属性：
+                 index:索引
+                 count:序号
+                 size：被迭代对象的大小
+                current：当前迭代变量
+                even/odd：布尔值，当前循环是否是偶数/奇数（从 0 开始计算）
+                first：布尔值，当前循环是否是第一个
+                last：布尔值，当前循环是否是最后一个
+
+
+
+-->
+ <table>
+     <tr>
+         <th>序号</th>
+         <th>用户id</th>
+         <th>用户名</th>
+         <th>用户年龄</th>
+         <th>索引</th>
+
+     </tr>
+     <tr th:each="user,iterStat:${list}">
+         <td th:text="${iterStat.count}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${iterStat.index}"></td>
+
+     </tr>
+
+
+
+ </table>
+
+
+
+</body>
+</html>

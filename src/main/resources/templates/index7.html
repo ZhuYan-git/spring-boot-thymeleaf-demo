@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1演示-thymeleaf的入门</title>
+    <script src="../static/test.js"></script>
+    <script src="/test.js"></script>
+    <script th:src="@{/test.js}"></script>
+</head>
+<body>
+<!--
+     Thymeleaf的内置对象：
+
+       通用语法：
+          #内置对象
+
+       1.时间内置对象
+            #dates
+            format：格式转换
+
+       2.number内置对象
+            #numbers
+            formatDecimal:保留指定位数的小数
+
+       3.字符串内置对象
+            #strings
+
+        (1)显示部分文字
+              abbreviate
+             页面的某个区域只能显示20个文字，现在我有60
+              文字......
+        (2)判断是否为空
+                  isEmpty 空为true
+
+        (3)字符串截取
+              substring
+-->
+当前时间：
+ <div th:text="${#dates.format(date,'yyyy年MM月dd日')}"></div>
+<hr/>
+    <input th:value="${#numbers.formatDecimal(price,1,2)}"/>
+<hr/>
+   <div th:text="${#strings.abbreviate(str,10)}"></div>
+
+ <hr/>
+ <div th:if="${!#strings.isEmpty(str2)}">str2不为空</div>
+<hr/>
+<div th:text="${#strings.substring(str2,0,4)}"></div>
+
+
+</body>
+</html>

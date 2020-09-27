@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1演示-thymeleaf的入门</title>
+</head>
+<body>
+<!--
+     thymeleaf的判断和选择：
+
+     if：
+       th:if="值"  当值为true时，所修饰标签体显示数据
+
+     else:
+      th:unless="值" 当值为false时，所修饰标签体显示数据
+
+     swatch:
+
+
+-->
+ <div th:if="${flag}">优就业</div>
+
+<div th:unless="${flag}">中公教育</div>
+
+<hr/>
+
+ <div th:switch="${menu}">
+
+     <p th:case="${manager}">这是一个manager</p>
+     <p th:case="'admin'">这是一个admin</p>
+
+ </div>
+
+
+
+
+</body>
+</html>
